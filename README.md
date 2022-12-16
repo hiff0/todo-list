@@ -1,8 +1,14 @@
 # Todo List
 
 ## Start
-`
-    >cd my-app
-    >npm i
+``
+    >cd my-app  
+``
+
+``
+    >npm i    
+``
+
+``
     >npm start
-`
+``
