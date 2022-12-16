@@ -1,2 +1,8 @@
-# todo-list
-todo list with React
+# Todo List
+
+## Start
+`
+    >cd my-app
+    >npm i
+    >npm start
+`
