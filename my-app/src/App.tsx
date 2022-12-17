@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { createContext, useState } from 'react'
 import { TaskType } from './utils/types';
 import List from "./components/List.tsx/List";
 import TaskInput from "./components/TaskInput/TaskInput";
@@ -16,6 +16,9 @@ const TASKS = [
     isDone: true,
   }
 ];
+
+// TODO добавить provider patter
+// export const FuncContext = React.createContext();
 
 function App() {
   const [tasks, setTasks] = useState(TASKS);
@@ -42,11 +45,21 @@ function App() {
     )
   }
 
+  const func = {
+    add: addTask,
+    check: checkTask,
+    delete: deleteTask
+  }
+
+  const FuncContext = createContext(func);
+
   return (
     <div className={styles.todolist}>
       <div className={styles.container}>
-        <TaskInput addTask={addTask} />
-        <List tasks={tasks} checkTask={checkTask} deleteTask={deleteTask} />
+        <FuncContext.Provider value={func}>
+          <TaskInput addTask={addTask} />
+          <List tasks={tasks} checkTask={checkTask} deleteTask={deleteTask} />
+        </FuncContext.Provider>
       </div>
     </div>
   );
