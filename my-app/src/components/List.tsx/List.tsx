@@ -1,5 +1,4 @@
 import Task from "../Task/Task";
-import { TaskType } from "../../utils/types";
 import styles from './List.module.css';
 import { useTaskContext } from "../../provider/useTaskContext";
 

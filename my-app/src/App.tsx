@@ -1,5 +1,3 @@
-import React, { useState, createContext } from 'react'
-import { TaskType } from './utils/types';
 import List from "./components/List.tsx/List";
 import TaskInput from "./components/TaskInput/TaskInput";
 import styles from './App.module.css';

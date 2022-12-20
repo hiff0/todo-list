@@ -44,7 +44,7 @@ export function TaskProvider ({children}: TaskProviderProps)  {
         )
     }
 
-    const func = {
+    const value = {
         tasks,
         addTask,
         checkTask,
@@ -52,7 +52,7 @@ export function TaskProvider ({children}: TaskProviderProps)  {
     }
 
     return (
-        <TaskContext.Provider value={func}>
+        <TaskContext.Provider value={value}>
             {children}
         </TaskContext.Provider>
     )

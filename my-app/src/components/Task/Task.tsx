@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import { TaskType } from "../../utils/types";
 import Button from "../Button/Button";
 import styles from './Task.module.css';
