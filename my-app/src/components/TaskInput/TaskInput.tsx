@@ -4,21 +4,7 @@ import styles from './TaskInput.module.css';
 import { useTaskContext } from '../../provider/useTaskContext';
 
 function TaskInput() {
-    const {addTask} = useTaskContext();
-
-    const [todo, setTodo] = useState({
-        title: '',
-    })
-
-    const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { value } = event.target;
-        setTodo({ title: value })
-    }
-
-    const onClick = () => {
-        addTask({ title: todo.title });
-        setTodo({ title: '' })
-    }
+    const {todo, addTask, onChange, onClick} = useTaskContext();
 
     return (
         <div className={styles.taskinput}>

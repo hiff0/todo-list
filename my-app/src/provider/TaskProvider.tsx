@@ -21,6 +21,9 @@ export function TaskProvider ({children}: TaskProviderProps)  {
       ];
 
     const [tasks, setTasks] = useState(TASKS);
+    const [todo, setTodo] = useState({
+        title: '',
+    });
 
     const addTask = ({ title }: Omit<TaskType, 'isDone' | 'id'>) => {
         setTasks([...tasks, { id: tasks.length + 1, title, isDone: false }])
@@ -44,11 +47,24 @@ export function TaskProvider ({children}: TaskProviderProps)  {
         )
     }
 
+    const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+        setTodo({ title: value })
+    }
+
+    const onClick = () => {
+        addTask({ title: todo.title });
+        setTodo({ title: '' })
+    }
+
     const value = {
         tasks,
+        todo,
         addTask,
         checkTask,
-        deleteTask
+        deleteTask,
+        onChange,
+        onClick
     }
 
     return (
