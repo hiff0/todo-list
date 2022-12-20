@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import { TaskType } from "../../utils/types";
 import Button from "../Button/Button";
 import styles from './Task.module.css';
-// import { FuncContext } from '../../App';
 
 interface TaskProp {
     task: TaskType,
@@ -11,7 +10,6 @@ interface TaskProp {
 }
 
 function Task({ task, checkTask, deleteTask }: TaskProp) {
-    // const { check, delete } = useContext(FuncContext);
 
     const taskStyle = {
         textDecoration: task.isDone ? 'line-through' : 'none'

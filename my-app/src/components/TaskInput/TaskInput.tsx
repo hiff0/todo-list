@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
-import { TaskType } from "../../utils/types";
 import styles from './TaskInput.module.css';
+import { useTaskContext } from '../../provider/useTaskContext';
 
-interface TaskPanel {
-    addTask: ({ title }: Omit<TaskType, 'isDone' | 'id'>) => void;
-}
+function TaskInput() {
+    const {addTask} = useTaskContext();
 
-function TaskInput({ addTask }: TaskPanel) {
     const [todo, setTodo] = useState({
         title: '',
     })
