@@ -1,14 +1,15 @@
 import { TaskType } from "../../utils/types";
 import Button from "../Button/Button";
 import styles from './Task.module.css';
+import { useTaskContext } from "../../provider/useTaskContext";
 
 interface TaskProp {
     task: TaskType,
-    checkTask: (id: TaskType['id']) => void,
-    deleteTask: (id: TaskType['id']) => void
 }
 
-function Task({ task, checkTask, deleteTask }: TaskProp) {
+function Task({ task }: TaskProp) {
+
+    const { checkTask, deleteTask, selectTaskIdForEdit } = useTaskContext();
 
     const taskStyle = {
         textDecoration: task.isDone ? 'line-through' : 'none'
@@ -20,6 +21,7 @@ function Task({ task, checkTask, deleteTask }: TaskProp) {
                 {task.title}
             </div>
             <div>
+                <Button title="Редактировать" onClick={() => selectTaskIdForEdit(task.id)} />
                 <Button title="Удалить" onClick={() => deleteTask(task.id)} />
             </div>
         </div >

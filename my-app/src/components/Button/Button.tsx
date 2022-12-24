@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 
 interface ButtonProps extends React.ComponentPropsWithRef<'button'> {
-    title: 'Добавить' | 'Удалить' | 'Редактировать',
+    title: 'Добавить' | 'Удалить' | 'Редактировать' | 'Изменить',
 }
 
-function Button({ id, title, onClick }: ButtonProps) {
+function Button({ title, onClick }: ButtonProps) {
 
     const buttonStyle = {
         margin: title === 'Удалить' ? '10px' : '0',
@@ -12,9 +12,8 @@ function Button({ id, title, onClick }: ButtonProps) {
         border: 'none',
         cursor: 'pointer',
         height: '30px',
-        background: title === 'Удалить' ? '#98faef' : '#656af7'
+        background: title === 'Удалить' ? '#98faef' : title === 'Добавить' ? '#656af7' : '#d67e7e'
     }
-
 
 
     return (
