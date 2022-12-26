@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TaskType } from "../utils/types";
 import { TaskContext } from "./TaskContext";
+import titleValidator from "../utils/validator";
 
 interface TaskProviderProps {
     children: React.ReactNode
@@ -21,13 +22,13 @@ export function TaskProvider({ children }: TaskProviderProps) {
     ];
 
     const [tasks, setTasks] = useState(TASKS);
-    const [todo, setTodo] = useState({
-        title: '',
-    });
     const [taskIdForEdit, setTaskIdForEdit] = useState<TaskType['id'] | null>(null);
 
     const addTask = ({ title }: Omit<TaskType, 'isDone' | 'id'>) => {
-        setTasks([...tasks, { id: tasks.length + 1, title, isDone: false }])
+        const isValidTitle = titleValidator(title);
+        if (isValidTitle) {
+            setTasks([...tasks, { id: tasks.length + 1, title, isDone: false }])
+        }
     }
 
 
@@ -49,12 +50,6 @@ export function TaskProvider({ children }: TaskProviderProps) {
         )
     }
 
-    const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { value } = event.target;
-        setTodo({ title: value })
-    }
-
-
     const selectTaskIdForEdit = (id: TaskType['id']) => {
         setTaskIdForEdit(id);
     }
@@ -69,26 +64,14 @@ export function TaskProvider({ children }: TaskProviderProps) {
         setTaskIdForEdit(null);
     }
 
-    const onClick = (isEdit: boolean) => {
-        if (isEdit) {
-            return (
-                changeTask({ title: todo.title }),
-                setTodo({ title: '' })
-            )
-        }
-        addTask({ title: todo.title });
-        setTodo({ title: '' })
-    }
 
     const value = {
         tasks,
-        todo,
         taskIdForEdit,
         addTask,
         checkTask,
         deleteTask,
-        onChange,
-        onClick,
+        changeTask,
         selectTaskIdForEdit,
     }
 

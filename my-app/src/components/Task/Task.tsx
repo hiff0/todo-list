@@ -20,7 +20,7 @@ function Task({ task }: TaskProp) {
             <div style={taskStyle} onClick={() => checkTask(task.id)} className={styles.title}>
                 {task.title}
             </div>
-            <div>
+            <div className={styles.buttons}>
                 <Button title="Редактировать" onClick={() => selectTaskIdForEdit(task.id)} />
                 <Button title="Удалить" onClick={() => deleteTask(task.id)} />
             </div>
