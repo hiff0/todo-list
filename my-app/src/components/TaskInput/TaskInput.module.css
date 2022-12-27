@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin: 10px 0;
 }
 
 .input {
@@ -10,4 +11,10 @@
     margin-right: 10px;
     border: 2px solid #333;
     border-radius: 5px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

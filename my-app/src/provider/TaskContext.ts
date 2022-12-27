@@ -10,6 +10,7 @@ export interface TaskContextProps {
     deleteTask: (id: TaskType['id']) => void,
     changeTask: ({ title }: Omit<TaskType, 'isDone' | 'id'>) => void,
     selectTaskIdForEdit: (id: TaskType['id']) => void,
+    resetTaskIdForEdit: () => void
 }
 
 export const TaskContext = createContext<TaskContextProps>({
@@ -20,4 +21,5 @@ export const TaskContext = createContext<TaskContextProps>({
     deleteTask: () => null,
     changeTask: () => null,
     selectTaskIdForEdit: () => null,
+    resetTaskIdForEdit: () => null
 })

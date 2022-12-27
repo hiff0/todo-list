@@ -31,7 +31,6 @@ export function TaskProvider({ children }: TaskProviderProps) {
         }
     }
 
-
     const checkTask = (id: TaskType['id']) => {
         setTasks(
             tasks.map((task) => {
@@ -54,6 +53,10 @@ export function TaskProvider({ children }: TaskProviderProps) {
         setTaskIdForEdit(id);
     }
 
+    const resetTaskIdForEdit = () => {
+        setTaskIdForEdit(null);
+    }
+
     const changeTask = ({ title }: Omit<TaskType, 'isDone' | 'id'>) => {
         setTasks(tasks.map((task) => {
             if (task.id === taskIdForEdit) {
@@ -64,7 +67,6 @@ export function TaskProvider({ children }: TaskProviderProps) {
         setTaskIdForEdit(null);
     }
 
-
     const value = {
         tasks,
         taskIdForEdit,
@@ -73,6 +75,7 @@ export function TaskProvider({ children }: TaskProviderProps) {
         deleteTask,
         changeTask,
         selectTaskIdForEdit,
+        resetTaskIdForEdit
     }
 
     return (

@@ -1,7 +1,7 @@
 import React from "react";
 
 interface ButtonProps extends React.ComponentPropsWithRef<'button'> {
-    title: 'Добавить' | 'Удалить' | 'Редактировать' | 'Изменить',
+    title: 'Добавить' | 'Удалить' | 'Редактировать' | 'Изменить' | 'Отменить',
 }
 
 function Button({ title, onClick }: ButtonProps) {
@@ -12,7 +12,7 @@ function Button({ title, onClick }: ButtonProps) {
         border: 'none',
         cursor: 'pointer',
         height: '30px',
-        background: title === 'Удалить' ? '#98faef' : title === 'Добавить' ? '#656af7' : '#d67e7e'
+        background: title === 'Удалить' ? '#98faef' : title === 'Добавить' ? '#656af7' : title === 'Отменить' ? '#f00e0e' : '#d67e7e',
     }
 
 

@@ -8,7 +8,7 @@ interface TaskInputProps {
 }
 
 function TaskInput({ mode }: TaskInputProps) {
-    const { addTask, changeTask } = useTaskContext();
+    const { tasks, taskIdForEdit, addTask, changeTask, resetTaskIdForEdit } = useTaskContext();
     const [todo, setTodo] = useState({
         title: '',
     });
@@ -24,20 +24,22 @@ function TaskInput({ mode }: TaskInputProps) {
     const onClick = () => {
         if (isEdit) {
             return (
-                changeTask({ title: todo.title }),
-                setTodo({ title: '' })
+                changeTask({ title: todo.title })
             )
         }
         addTask({ title: todo.title });
         setTodo({ title: '' })
     }
 
-    // TODO добавить функционал оставления названия в поле input при редактировании
-    // TODO добавить функцционал отмены изменения задачи
     return (
         <div className={styles.taskinput}>
             <input type="text" placeholder={placeholder} onChange={onChange} value={todo.title} className={styles.input} />
-            <Button title={mode} onClick={onClick} />
+            <div className={styles.buttons}>
+                <Button title={mode} onClick={onClick} />
+                {
+                    isEdit && <Button title="Отменить" onClick={resetTaskIdForEdit} />
+                }
+            </div>
         </div>
     )
 }
