@@ -13,7 +13,7 @@ function TaskInput({ mode }: TaskInputProps) {
         title: '',
     });
     const isEdit = mode === 'Изменить';
-    const placeholder = mode === 'Изменить' ? 'Измените задачу' : 'Введите задачу';
+    const placeholder = mode === 'Изменить' ? 'Измените задачу' : ' ';
 
 
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {

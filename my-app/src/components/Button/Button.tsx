@@ -1,6 +1,6 @@
 import React from "react";
 
-interface ButtonProps extends React.ComponentPropsWithRef<'button'> {
+export interface ButtonProps extends React.ComponentPropsWithRef<'button'> {
     title: 'Добавить' | 'Удалить' | 'Редактировать' | 'Изменить' | 'Отменить',
 }
 
