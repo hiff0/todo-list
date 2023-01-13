@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import TaskInput from './TaskInput';
+import TaskInput from '.';
 
 describe('TaskInput component', () => {
     it('renders', () => {

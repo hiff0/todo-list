@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "../Button/Button";
+import Button from "../Button";
 import styles from './TaskInput.module.css';
 import { useTaskContext } from '../../provider/useTaskContext';
 

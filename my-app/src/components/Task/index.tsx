@@ -1,5 +1,5 @@
 import { TaskType } from "../../utils/types";
-import Button from "../Button/Button";
+import Button from "../Button";
 import styles from './Task.module.css';
 import { useTaskContext } from "../../provider/useTaskContext";
 

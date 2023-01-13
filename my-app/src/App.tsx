@@ -1,5 +1,5 @@
 import List from "./components/List.tsx/List";
-import TaskInput from "./components/TaskInput/TaskInput";
+import TaskInput from "./components/TaskInput";
 import styles from './App.module.css';
 import { TaskProvider } from './provider/TaskProvider';
 

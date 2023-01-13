@@ -1,7 +1,7 @@
-import Task from "../Task/Task";
+import Task from "../Task";
 import styles from './List.module.css';
 import { useTaskContext } from "../../provider/useTaskContext";
-import TaskInput from "../TaskInput/TaskInput";
+import TaskInput from "../TaskInput";
 
 function List() {
     const { tasks, taskIdForEdit } = useTaskContext();
@@ -9,10 +9,7 @@ function List() {
     return (
         <div className={styles.list}>
             {tasks.map((task) => {
-                if (task.id === taskIdForEdit) {
-                    return <TaskInput mode='Изменить' />
-                }
-                return <Task task={task} />
+                return task.id === taskIdForEdit ? <TaskInput mode='Изменить' /> : <Task task={task} />
             })}
         </div>
     )
