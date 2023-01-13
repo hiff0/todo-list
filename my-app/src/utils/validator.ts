@@ -1,11 +1,7 @@
-import { TaskType } from "./types";
+import { TaskType } from "../../types";
 
 const titleValidator = (title: TaskType['title']) => {
-    if (title.length <= 0) {
-        return false;
-    }
-
-    return true;
+    return title.length > 0;
 }
 
 export default titleValidator;

@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { TaskType } from "../utils/types";
+import { TaskType } from "../../types";
 import React from "react";
 
 export interface TaskContextProps {

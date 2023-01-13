@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TaskType } from "../utils/types";
+import { TaskType } from "../../types";
 import { TaskContext } from "./TaskContext";
 import titleValidator from "../utils/validator";
 
@@ -8,7 +8,7 @@ interface TaskProviderProps {
 }
 
 export function TaskProvider({ children }: TaskProviderProps) {
-    const TASKS = [
+    const TASKS: TaskType[] = [
         {
             id: 1,
             title: 'Задача 1',
@@ -67,19 +67,19 @@ export function TaskProvider({ children }: TaskProviderProps) {
         setTaskIdForEdit(null);
     }
 
-    const value = {
-        tasks,
-        taskIdForEdit,
-        addTask,
-        checkTask,
-        deleteTask,
-        changeTask,
-        selectTaskIdForEdit,
-        resetTaskIdForEdit
-    }
-
     return (
-        <TaskContext.Provider value={value}>
+        <TaskContext.Provider value={
+            {
+                tasks,
+                taskIdForEdit,
+                addTask,
+                checkTask,
+                deleteTask,
+                changeTask,
+                selectTaskIdForEdit,
+                resetTaskIdForEdit
+            }
+        }>
             {children}
         </TaskContext.Provider>
     )

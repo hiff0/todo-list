@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "../Button";
 import styles from './TaskInput.module.css';
-import { useTaskContext } from '../../provider/useTaskContext';
+import { useTaskContext } from '../../provider';
 
 interface TaskInputProps {
     mode: 'Добавить' | 'Изменить'
@@ -21,6 +21,13 @@ function TaskInput({ mode }: TaskInputProps) {
         setTodo({ title: value })
     }
 
+    const preventDefault = () => {
+        const formButton = document.querySelector('form');
+        formButton?.addEventListener('click', (evt) => {
+            evt.preventDefault();
+        })
+    }
+
     const onClick = () => {
         if (isEdit) {
             return (
@@ -28,11 +35,11 @@ function TaskInput({ mode }: TaskInputProps) {
             )
         }
         addTask({ title: todo.title });
-        setTodo({ title: '' })
+        setTodo({ title: '' });
     }
 
     return (
-        <div className={styles.taskinput}>
+        <form className={styles.taskinput} onClick={preventDefault}>
             <input type="text" placeholder={placeholder} onChange={onChange} value={todo.title} className={styles.input} />
             <div className={styles.buttons}>
                 <Button title={mode} onClick={onClick} />
@@ -40,7 +47,7 @@ function TaskInput({ mode }: TaskInputProps) {
                     isEdit && <Button title="Отменить" onClick={resetTaskIdForEdit} />
                 }
             </div>
-        </div>
+        </form>
     )
 }
 

@@ -1,7 +1,7 @@
-import { TaskType } from "../../utils/types";
+import { TaskType } from "../../../types";
 import Button from "../Button";
 import styles from './Task.module.css';
-import { useTaskContext } from "../../provider/useTaskContext";
+import { useTaskContext } from "../../provider";
 
 interface TaskProp {
     task: TaskType,

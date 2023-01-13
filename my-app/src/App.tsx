@@ -1,7 +1,7 @@
-import List from "./components/List.tsx/List";
+import List from "./components/List";
 import TaskInput from "./components/TaskInput";
 import styles from './App.module.css';
-import { TaskProvider } from './provider/TaskProvider';
+import { TaskProvider } from './provider';
 
 function App() {
 

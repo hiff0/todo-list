@@ -1,6 +1,6 @@
 import Task from "../Task";
 import styles from './List.module.css';
-import { useTaskContext } from "../../provider/useTaskContext";
+import { useTaskContext } from "../../provider";
 import TaskInput from "../TaskInput";
 
 function List() {
