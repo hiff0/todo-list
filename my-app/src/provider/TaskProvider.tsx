@@ -27,26 +27,23 @@ export function TaskProvider({ children }: TaskProviderProps) {
     const addTask = ({ title }: Omit<TaskType, 'isDone' | 'id'>) => {
         const isValidTitle = titleValidator(title);
         if (isValidTitle) {
-            setTasks([...tasks, { id: tasks.length + 1, title, isDone: false }])
+            setTasks((currentTasks) => [...currentTasks, { id: currentTasks.length + 1, title, isDone: false }])
         }
     }
 
     const checkTask = (id: TaskType['id']) => {
-        setTasks(
-            tasks.map((task) => {
-                if (task.id === id) {
-                    return { ...task, isDone: !task.isDone }
-                }
+        setTasks((currentTasks) => currentTasks.map((task) => {
+            if (task.id === id) {
+                return { ...task, isDone: !task.isDone }
+            }
 
-                return task;
-            })
+            return task;
+        })
         )
     }
 
     const deleteTask = (id: TaskType['id']) => {
-        setTasks(
-            tasks.filter((task) => task.id !== id)
-        )
+        setTasks((currentTasks) => currentTasks.filter((task) => task.id !== id))
     }
 
     const selectTaskIdForEdit = (id: TaskType['id']) => {
@@ -58,7 +55,7 @@ export function TaskProvider({ children }: TaskProviderProps) {
     }
 
     const changeTask = ({ title }: Omit<TaskType, 'isDone' | 'id'>) => {
-        setTasks(tasks.map((task) => {
+        setTasks((currentTasks) => currentTasks.map((task) => {
             if (task.id === taskIdForEdit) {
                 return { ...task, title: title };
             }
