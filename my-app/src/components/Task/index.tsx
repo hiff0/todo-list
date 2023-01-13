@@ -11,13 +11,11 @@ function Task({ task }: TaskProp) {
 
     const { checkTask, deleteTask, selectTaskIdForEdit } = useTaskContext();
 
-    const taskStyle = {
-        textDecoration: task.isDone ? 'line-through' : 'none'
-    }
-
     return (
         <div className={styles.task}>
-            <div style={taskStyle} onClick={() => checkTask(task.id)} className={styles.title}>
+            <div onClick={() => checkTask(task.id)} className={
+                !task.isDone ? styles.title : styles.title__isdone
+            }>
                 {task.title}
             </div>
             <div className={styles.buttons}>

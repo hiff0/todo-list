@@ -1,0 +1,31 @@
+:root {
+    --delete-color: #98faef;
+    --add-color: #656af7;
+    --cancel-color: #f00e0e;
+    --edit-color: #d67e7e;
+}
+
+.button {
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    height: 30px;
+}
+
+.button__delete {
+    margin: 10px;
+    background-color: var(--delete-color);
+}
+
+.button__add {
+    background-color: var(--add-color);
+}
+
+.button__cancel {
+    background-color: var(--cancel-color);
+    margin-left: 10px;
+}
+
+.button__edit {
+    background-color: var(--edit-color);
+}

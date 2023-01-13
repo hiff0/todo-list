@@ -8,8 +8,15 @@
     cursor: pointer;
 }
 
+
 .title {
     margin: 10px;
+    text-decoration: none;
+}
+
+.title__isdone {
+    margin: 10px;
+    text-decoration: line-through;
 }
 
 .buttons {
